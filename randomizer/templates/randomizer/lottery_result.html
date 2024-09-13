@@ -1,0 +1,23 @@
+<!-- randomizer/templates/randomizer/lottery_result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lottery Results</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'randomizer/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <img src="http://files-dublincity-fspub.s3.eu-west-1.amazonaws.com/DCC_Logos/DCClogoTransparent_300.png" alt="DCC Logo">
+        <h1>Lottery Results for €{{ property.sale_price }} - {{ property.bed }} Bed - {{ property.type }} - {{ property.development }}</h1>
+        <p>Lottery Date: {{ property.lotterydate }}</p>
+        <p>Status: {{ property.status }}</p>
+        <h2>Applicants</h2>
+        <ul>
+            {% for applicant in applicants %}
+                <li>Position {{ applicant.lotteryposition }}: {{ applicant.applicationid }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

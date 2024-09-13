@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property List</title>
+</head>
+<body>
+    <h1>Property List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Property ID</th>
+                <th>Applicant Name</th>
+                <th>Email</th>
+                <th>Allocation Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for allocation in allocations %}
+            <tr>
+                <td>{{ allocation.property.propertyid }}</td>
+                <td>{{ allocation.applicant.applicantname }}</td>
+                <td>{{ allocation.applicant.email }}</td>
+                <td>{{ allocation.allocation_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'randomizer:export_to_excel' %}">Download as Excel</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!-- randomizer/templates/randomizer/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Property Allocation System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'randomizer/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <img src="http://files-dublincity-fspub.s3.eu-west-1.amazonaws.com/DCC_Logos/DCClogoTransparent_300.png" alt="DCC Logo">
+        <h1>Welcome to the Property Allocation System</h1>
+        <form method="post" action="{% url 'randomizer:run_lottery' %}">
+            {% csrf_token %}
+            <label for="property_id">Enter Property ID:</label>
+            <input type="text" id="property_id" name="property_id" required>
+            <button type="submit">Run Lottery</button>
+        </form>
+    </div>
+</body>
+</html>

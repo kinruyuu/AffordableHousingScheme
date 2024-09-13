@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applicant List</title>
+</head>
+<body>
+    <h1>Applicant List</h1>
+    <ul>
+        {% for applicant in applicants %}
+            <li>{{ applicant.applicationid }} - {{ applicant.applicantname }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
